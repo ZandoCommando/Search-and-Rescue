@@ -23,9 +23,9 @@ class Search:
         self.area_actual = 0
         self.sailor_actual = [0, 0]
 
-        self.sa1 = self.img[SA1_CORNERS[1]: SA1_CORNERS[3], SA1_CORNERS[0], SA1_CORNERS[4]]
-        self.sa2 = self.img[SA2_CORNERS[1]: SA2_CORNERS[3], SA2_CORNERS[0], SA2_CORNERS[4]]
-        self.sa3 = self.img[SA3_CORNERS[1]: SA3_CORNERS[3], SA3_CORNERS[0], SA3_CORNERS[4]]
+        self.sa1 = self.img[SA1_CORNERS[1], SA1_CORNERS[3], SA1_CORNERS[2], SA1_CORNERS[4]]
+        self.sa2 = self.img[SA2_CORNERS[1], SA2_CORNERS[3], SA2_CORNERS[2], SA2_CORNERS[4]]
+        self.sa3 = self.img[SA3_CORNERS[1], SA3_CORNERS[3], SA3_CORNERS[2], SA3_CORNERS[4]]
 
         self.p1 = 0.2
         self.p2 = 0.5
@@ -41,4 +41,16 @@ class Search:
         # Text Surrounding Line Scale
         cv.putText(self.img, '0', (8, 370), cv.FONT_HERSHEY_PLAIN, 1, (0, 0, 0))
         cv.putText(self.img, '50 Nautical Miles', (71, 370), cv.FONT_HERSHEY_PLAIN, 1, (0, 0, 0))
+
+
+        # Search Area Graphics(Rectangles) and Associated Labels
+        cv.rectangle(self.img, (SA1_CORNERS[0], SA1_CORNERS[1]), (SA1_CORNERS[2], SA1_CORNERS[3]), (0, 0, 0), 1)
+        cv.putText(self.img, "1", (SA1_CORNERS[0] + 3, SA1_CORNERS[1] + 15), cv.FONT_HERSHEY_PLAIN, 1, 0)
+
+        cv.rectangle(self.img, (SA2_CORNERS[0], SA2_CORNERS[1]), (SA2_CORNERS[2], SA2_CORNERS[3]), (0, 0, 0), 1)
+        cv.putText(self.img, "1", (SA2_CORNERS[0] + 3, SA2_CORNERS[1] + 15), cv.FONT_HERSHEY_PLAIN, 1, 0)
+
+        cv.rectangle(self.img, (SA3_CORNERS[0], SA3_CORNERS[1]), (SA3_CORNERS[2], SA3_CORNERS[3]), (0, 0, 0), 1)
+        cv.putText(self.img, "1", (SA3_CORNERS[0] + 3, SA3_CORNERS[1] + 15), cv.FONT_HERSHEY_PLAIN, 1, 0)
+
 
