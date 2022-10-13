@@ -57,4 +57,8 @@ class Search:
         cv.putText(self.img, "+ = Last Known Position", (274, 355), cv.FONT_HERSHEY_PLAIN, 1, (0, 0, 255))
         cv.putText(self.img, "* = Actual Position", (275, 370), 1, (255, 0, 0))
 
+        cv.imshow("Search Area", self.img)
+        cv.moveWindow("Search Area", 750, 10)
+        cv.waitKey(500)
+
 
