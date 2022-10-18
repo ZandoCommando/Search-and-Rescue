@@ -51,7 +51,7 @@ class Search:
         cv.putText(self.img, "2", (SA2_CORNERS[0] + 3, SA2_CORNERS[1] + 15), cv.FONT_HERSHEY_PLAIN, 1, 0)
 
         cv.rectangle(self.img, (SA3_CORNERS[0], SA3_CORNERS[1]), (SA3_CORNERS[2], SA3_CORNERS[3]), (0, 0, 0), 1)
-        cv.putText(self.img, "2", (SA3_CORNERS[0] + 3, SA3_CORNERS[1] + 15), cv.FONT_HERSHEY_PLAIN, 1, 0)
+        cv.putText(self.img, "3", (SA3_CORNERS[0] + 3, SA3_CORNERS[1] + 15), cv.FONT_HERSHEY_PLAIN, 1, 0)
 
         cv.putText(self.img, "+", (last_known), cv.FONT_HERSHEY_PLAIN, 1, (0, 0, 255))
         cv.putText(self.img, "+ = Last Known Position", (274, 355), cv.FONT_HERSHEY_PLAIN, 1, (0, 0, 255))
@@ -59,6 +59,13 @@ class Search:
 
         cv.imshow("Search Area", self.img)
         cv.moveWindow("Search Area", 750, 10)
-        cv.waitKey(10000)
+        cv.waitKey(500)
+
+
+    def sailor_final_location(self, num_search_areas):
+        """ Return actual x,y coordinates of missing sailor """
+        self.sailor_actual[0] = np.random.choice(self.sa1.shape[1], 1)
+        self.sailor_actual[1] = np.random.choice(self.sa1.shape[0], 1)
+        
 
 
